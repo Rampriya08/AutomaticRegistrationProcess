@@ -1,0 +1,203 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="dataextract" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="tc" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>488,1701</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>dataextract_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="75">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.TaxonomyManagement</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Digitization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.OmniPage.Activities</x:String>
+      <x:String>UiPath.DocumentUnderstanding.Digitizer.Utils</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DocumentClassification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Classification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Training</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Training</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DataExtraction</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities.Editors</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.ValidationStation</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.Vision.Core.OCR</x:String>
+      <x:String>UiPath.Activities.Presentation</x:String>
+      <x:String>UiPath.Activities.Presentation.Converters</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Design</x:String>
+      <x:String>UiPath.PDF.Activities.Design</x:String>
+      <x:String>UiPath.PDF.Activities.Design.Properties</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities.Services</x:String>
+      <x:String>UiPath.Shared.Activities.Services.Interfaces</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities.Bindings</x:String>
+      <x:String>UiPath.XPS.Activities</x:String>
+      <x:String>UiPath.PDF.Activities.Properties</x:String>
+      <x:String>UiPath.PDF.Activities.PDF</x:String>
+      <x:String>UiPath.SmartData.Telemetry</x:String>
+      <x:String>UiPath.SmartData.Telemetry.Shared</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="104">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OmniPage.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.Digitizer</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OmniPage.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Telemetry</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="498,1636" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="name" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="fname" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="emis" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="nationality" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="mname" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="gender" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="dob" />
+      <Variable x:TypeArguments="x:String" Name="tcdata" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="scholarship" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="subject" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="436,83" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[tcdata]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">• 4, Government Of Tamil Nadu ' Department of School Education TRAN SFER CERTIFICATE (Recognised by the Director of School Education)
+Reg.No. :2044330 Mark List.No . T.C..No :480/19-20 Adm.No : 15974
+EMIS No : 3329200240800698 Aadhaar No : 533657327042 1. a) Name Of the School : ST. IGNA'TIUS CONVENT HR. SEC. SCHOOL, PALAYAMKOTTAI - 627002 b) Name of the Educational District and Revenue District : TIRUNELVELI 2. Name of the Pupil (in Block Letters) : VIGNESWARI M uprraerivir Gulp&amp; ,L61L6l6-1.) : 6111e606ar646111 0 3. Name of the Father or Mother of the Pupil :MURUGAN N 4. Nationality : INDIAN 5. Religion, Caste &amp; Community: Whether he/she'belongs to : REFER THE COMMUNITY CERTIFICATE 6. Sex : FEMALE 7. Date of Birth as entered in the Admission Register : 21/12/2002 (in figures and in words) : TWENTY FIRST DECEMBER TWO THOUSAND AND TWO 8. Personal Marks of identification A) : A MOLE ON THE RIGHT UPPER ARM B) : A MOLE NEAR THE LEFT SIDE UP 9. Date of admission and standard in which admitted : 01/06/2018 STANDARD ELEVEN (the year to be entered in words) TWO THOUSAND AND EIGHTEEN 10. a) Standard in which pupil was studying at the time of leaving (in words) : XII TWELFTH STANDARD b) The course offered : GENERAL General Education / Vocational Education : c) In the case of General Education Subjects MATHS, PHYSICS, CHEMISTRY,COMPUTER SCIENCE offered under part Ill Group A d) In the case of Vocational Education ,the . • Vocational subject under Part Ill e) Language offered under Part I : TAMIL f) Medium of Study : ENGLISH 11. Whether qualified for promotion to higher standard : REFER THE MARK SHEET under Hr.Sec. Education Rules 12. Whether the pupil has paid all the fees due : YES 13. Whether the pupil was in receipt of any scholorship : NO 14. Whether the pupil has undergone Medical : YES Inspection during the academic year . 15. Date on which the pupil actually left the school : 24/03/2020 16. The Pupil's conduct and character : GOOD 17. Date on which the application for Transfer certificate was made : 24/03/2020 18. Date of Transfer Certificate : 17/07/2020 19. Course of Study
+Name Of the School Academic Year(s) Standard(s)Studied First Language Medium Of Instruction
+ST. IGNATIUS SEC. PALAYAMKOTTAI CONVENT HR. SCHOOL, - 627002 2018-2019 To 2019-2020 XI To XII TAMIL ENGLISH
+.. ,i)..------------. 0 . ‘. v hire  of the Headmistre-54. .,,, ithreNtgV84 -brif teal r HEADMISTRESS 627 Ou 4, ST. IGNATIUS' CONVENT HP SEC ict-lioui t--A ---  PALAYAMKOTTAI - 62/ vu' '''•.--1, — N\ —
+Note: Tuthenticated or Fradulent alterations in the certificate will lead to its cancellation. 2. Should be signed in ink by the Head of Instittution,who will be held responsible for the corrections of the entries. DECLARATION BY THE PARENT OR GUARDIAN I hereby declare that the particulars recorded against items 2 to 7 are correct and that no change will be demanded by me in future. ? ' I • Su_ a-6._</InArgument>
+      </Assign.Value>
+    </Assign>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[tcdata]" />
+    <ui:Matches BuilderPattern="(?&lt;=\(in English, in block letters\) (:| )).*|(?&lt;=name of the pupil \(in block letters\) (:| )).\w[A-Z ]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=\\(in English, in block letters\\) (:| )).*|(?&lt;=name of the pupil \\(in block letters\\) (:| )).\\w[A-Z ]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(in English, in block letters\) (:| )).*|(?&lt;=name of the pupil \(in block letters\) (:| )).\w[A-Z ]+" RegexOption="IgnoreCase, Compiled" Result="[name]" />
+    <ui:Matches BuilderPattern="(?&lt;=\(father's name\) (:| )).*|(?&lt;=name of the father or mother of the pupil (:|)).[A-Z ]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=\\(father's name\\) (:| )).*|(?&lt;=name of the father or mother of the pupil (:|)).[A-Z ]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(father's name\) (:| )).*|(?&lt;=name of the father or mother of the pupil (:|)).[A-Z ]+" RegexOption="IgnoreCase, Compiled" Result="[fname]" />
+    <ui:Matches BuilderPattern="(?&lt;=\(mother's name\) (:| )).*" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=\\(mother's name\\) (:| )).*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(mother's name\) (:| )).*" RegexOption="IgnoreCase, Compiled" Result="[mname]" />
+    <ui:Matches BuilderPattern="(?&lt;=\(nationality &amp; religion\) (.|:| ) (•|)).[A-Z]+|(?&lt;=nationality (:|)).[A-Z]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=\\(nationality &amp; religion\\) (.|:| ) (•|)).[A-Z]+|(?&lt;=nationality (:|)).[A-Z]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(nationality &amp; religion\) (.|:| ) (•|)).[A-Z]+|(?&lt;=nationality (:|)).[A-Z]+" RegexOption="IgnoreCase, Compiled" Result="[nationality]" />
+    <ui:Matches BuilderPattern="(?&lt;=\(Student emis id\)(:| )).[0-9 ]+|(?&lt;=emis no (:| )).[0-9 ]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=\\(Student emis id\\)(:| )).[0-9 ]+|(?&lt;=emis no (:| )).[0-9 ]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(Student emis id\)(:| )).[0-9 ]+|(?&lt;=emis no (:| )).[0-9 ]+" RegexOption="IgnoreCase, Compiled" Result="[emis]" />
+    <ui:Matches BuilderPattern="(?&lt;=Gender .[^()]*.\) (:| )).*|(?&lt;=sex (:| )).[A-Z]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Gender .[^()]*.\\) (:| )).*|(?&lt;=sex (:| )).[A-Z]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Gender .[^()]*.\) (:| )).*|(?&lt;=sex (:| )).[A-Z]+" RegexOption="IgnoreCase, Compiled" Result="[gender]" />
+    <ui:Matches BuilderPattern="(?&lt;=Date of birth as entered in the admission register .([^()]*)(\)|) (:| )( |)).\d{2}-\w[A-Za-z-]{3}\d{4}|(?&lt;=Date of birth as entered in the admission register :).\d{2}/\d{2}/\d{4}" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Date of birth as entered in the admission register .([^()]*)(\\)|) (:| )( |)).\\d{2}-\\w[A-Za-z-]{3}\\d{4}|(?&lt;=Date of birth as entered in the admission register :).\\d{2}\/\\d{2}\/\\d{4}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Date of birth as entered in the admission register .([^()]*)(\)|) (:| )( |)).\d{2}-\w[A-Za-z-]{3}\d{4}|(?&lt;=Date of birth as entered in the admission register :).\d{2}/\d{2}/\d{4}" RegexOption="IgnoreCase, Compiled" Result="[dob]" />
+    <ui:Matches BuilderPattern="(?&lt;=any schol(o|a)rship(([^()]*).\)|) (:| )).[A-Z]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=any schol(o|a)rship(([^()]*).\\)|) (:| )).[A-Z]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=any schol(o|a)rship(([^()]*).\)|) (:| )).[A-Z]+" RegexOption="IgnoreCase, Compiled" Result="[scholarship]" />
+    <ui:Matches BuilderPattern="(?&lt;=in the case of general education ([^()]*)(\) |)(:| )).[A-Z (-.)]|[A-Z]+" sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[tcdata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=in the case of general education ([^()]*)(\\) |)(:| )).[A-Z (-.)]|[A-Z]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=in the case of general education ([^()]*)(\) |)(:| )).[A-Z (-.)]|[A-Z]+" RegexOption="IgnoreCase, Compiled" Result="[subject]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="436,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[dob(0).Value]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,275" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,196" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[name(0).Value+&quot; &quot;+fname(0).Value+&quot; &quot;+mname(0).Value+&quot; &quot;+nationality(0).Value+&quot; &quot;+emis(0).Value+gender(0).Value+&quot; &quot;+dob(0).Value+&quot; &quot;+scholarship(0).Value+&quot; &quot;+subject(0).Value]" />
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>

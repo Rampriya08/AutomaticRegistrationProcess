@@ -1,0 +1,294 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="aadhar" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="aadhar" Type="InArgument(x:String)" />
+    <x:Property Name="aadhaarvalue" Type="OutArgument(x:String)" />
+    <x:Property Name="doorno" Type="OutArgument(x:String)" />
+    <x:Property Name="street" Type="OutArgument(x:String)" />
+    <x:Property Name="district" Type="OutArgument(x:String)" />
+    <x:Property Name="taluk" Type="OutArgument(x:String)" />
+    <x:Property Name="state" Type="OutArgument(x:String)" />
+    <x:Property Name="pincode" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>866,784</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>aadhar_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="26">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices.RuntimeInformation</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="aadhar" sap:VirtualizedContainerService.HintSize="496,937" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="aadhardata" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="aadhaarno" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="address" />
+      <Variable x:TypeArguments="s:String[]" Name="aadhaararray" />
+      <Variable x:TypeArguments="s:String[]" Name="addressarray" />
+      <Variable x:TypeArguments="x:String" Name="iaadharno" />
+      <Variable x:TypeArguments="x:String" Name="iaddress" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[aadhardata]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">mead
+11N147 'ar1,1
+(Rd 41(rt.!f.
+nainin
+O$NU_J 611UULL a6-5)LUST611 StS615)60brthl cM611)11111
+anyfrrrfikbth
+Unique Identification Authority of India
+Government of India
+U16.11 sianLuirrerth /Enrollment No 1 2040/80272/45425
+tn
+D/O. Sankaranarayanan
+es, 2/3
+Kamaraj Street
+0
+OD Moolaikaraipatti
+Moolakaraipatti
+MoolaikaraipattitTir-in
+Tamil Nadu - 627? .4
+94865172?..4
+To
+Rampriya S
+gmbOlrfluin if
+11111111EPilHf,it:.: i11111,111aHml
+KH47153232;fl
+47153232
+6T6001 / Your Aadhaar No.:
+7159 9886 6200
+c%rriy - arrrruour tne4n116isr ern*
+ &gt;*-
+apjffrrrilJffith
+Government of India
+unin.1111 LW a
+Rampriya S
+cr,rien s DOB: 20/08/2003
+auferrurrs ! Female
+7159 9886 6200
+- aurrugur wi6401166-r gthlarrutioGovernment of India
+AADHAAR
+•Er)61.16i)
+• simbrr4 cmanLILI1161*01011T615T EFIT6tip
+6411-111161MM6 al6b6t •
+• (3161DLLIST611 urrcoT6J 613)66MLLI611Lb (g361llb
+52._gaiu®OiEs OaridrGreith.
+(01111LI: (5W$61:10( 15 61.1UJIT(MCDCUITOI UGUJETQL01:111a)
+glMI:JULbeiltlefAnGil Lail:A51fhth C61166131Gth
+INFORMATION
+• Aadhaar is proof of identity, not of citizenship.
+11 To establish identity, authenticate online.
+Note : Children c-i2n 15 ycars of age
+need Lo upcA Hoi.lic!(:. information.
+;
+• 4Thrrij• :;45--ci)tyutil.u_irr@ti)
+• Qi®OliehrrGop-'416b ally&amp; ingib aqui &amp;rrurr
+C (SF 66) 611 Efi615) 6T1 uuJaiu®G Othrrdrar
+@GE6@th
+• Aadhaar is valid throughout the country.
+• Aadhaar will be helpful in availing Government
+and Non-Government services in future.
+arrir
+(giesc)irfl. A)6t1 QuaE;:
+Ef fill&amp;IWWILJ61117T6th, 2/3, &amp;mufti C1(5
+ccosna)E6865-)13OuLie., cymtfiseawfmILI4-
+Qiencuiffia6inguuCta., $1646)Cos51
+gitlf41 IT®. 627354
+OPLJgCtI1CJULL AenLturisn st4,6inainu
+Unique Identification Authority of India
+Address: D/O:
+Sankaranarayanan, 2/3,
+Karriaraj Street
+Moolaikaraipatii,
+Moolakaraipatti,
+Moolaikaraipatti, Tirunelveli,
+Nanguneri, Tamil Nadu,
+627354
+7159 9886 6200
+1947
+40,11111ln 4f1.47
+WWW</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:Matches BuilderPattern="(?&lt;=Your Aadhaar No(.| )( |)(:|))(?:.*\n){2}" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[aadhardata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Your Aadhaar No(.| )( |)(:|))(?:.*\\n){2}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Your Aadhaar No(.| )( |)(:|))(?:.*\n){2}" RegexOption="IgnoreCase, Compiled" Result="[aadhaarno]" />
+    <ui:Matches BuilderPattern="(?&lt;=Address:)(?:.*\n){8}" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[aadhardata]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Address:)(?:.*\\n){8}&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Address:)(?:.*\n){8}" RegexOption="IgnoreCase, Compiled" Result="[address]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,196" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[address(0).Value+&quot; &quot;+aadhaarvalue(0).Value]" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="434,411" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[iaadharno]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[aadhaarno(0).Value]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[iaddress]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[address(0).Value]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[addressarray]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]">[iaddress.Split(","c)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="s:String[]">[aadhaararray]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="s:String[]">[iaadharno.Split(Environment.NewLine.ToCharArray)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[aadhaarvalue]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[aadhaararray(1)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[doorno]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[addressarray(1)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[street]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[addressarray(2)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[district]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[addressarray(5)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[taluk]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[addressarray(6)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[state]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[addressarray(7)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[pincode]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[addressarray(8)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+  </Sequence>
+</Activity>
